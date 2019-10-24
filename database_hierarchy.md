@@ -14,3 +14,72 @@
 
 Reference: Aerospike 2013 documents
 
+
+Cluster
+```
+➤ Will be distributed on different nodes.
+➤ Management of cluster is automated, so
+no manual rebalancing or reconfiguration
+is necessary.
+➤ Will contain one or more namespaces.
+Adding/removing namespaces requires a
+cluster-wide restart.
+```
+
+Nodes
+```
+➤ Each node is assumed to be identical.
+➤ Data (and their associated traffic) will be
+evenly balanced across the nodes.
+➤ Big differences between nodes imply a
+problem.
+➤ Node capacity should take into account
+node failure patterns. 
+```
+
+Namespaces
+```
+➤ Are associated with the storage media:
+- Hybrid (ram for index and SSD for data)
+- RAM + disk for persistence only
+- RAM only
+➤ Each can be configured with their own:
+- replication factor (change requires a cluster-wide restart)
+- RAM and disk configuration
+- settings for high-watermark
+- default TTL (if you have data that must never be
+automatically deleted, you must set this to “0”)
+```
+
+Sets
+```
+➤ Similar to “tables” in relational
+databases.
+➤ Sets are optional.
+➤ Schema does not have to be pre-defined.
+➤ In order to request a record, you must
+know its set.
+➤ Scans can be done across a set 
+```
+
+Records
+```
+➤ Similar to a row in a relational database.
+➤ All data for a record will be stored on the
+same node. This is true even for LDTs.
+➤ Any change to a record will result in a
+complete write of the entire record,
+unless using LDTs.
+```
+
+Bins
+```
+➤ Values Are typed. Current types are:
+- Simple (integer, string, blob [language specific])
+- Complex (list, map)
+- Large Data Types (LDTs)
+➤ A single bin may be updated by the client.
+- Increment
+- Replacement
+- User Defined Function (UDF)
+```
