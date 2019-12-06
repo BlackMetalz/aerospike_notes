@@ -3,3 +3,9 @@
 ```
 asbackup --host localhost --namespace ns_aes_test --directory /data/asbackup/ns_aes_test_today
 ```
+
+-- Restore
+
+```
+asrestore --host localhost --directory ns_aes_test_today/
+```
