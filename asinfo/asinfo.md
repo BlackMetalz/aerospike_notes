@@ -1,3 +1,5 @@
+## Source: https://www.aerospike.com/docs/reference/configuration/
+
 -- Increase memory-size of namespace
 
 ```
