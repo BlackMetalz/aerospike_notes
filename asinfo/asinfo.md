@@ -1,5 +1,10 @@
 ## Source: https://www.aerospike.com/docs/reference/configuration/
 
+-- Get detail information about specific namespace:
+```
+asinfo -v 'namespace/your_namespace' -l
+```
+
 -- Increase memory-size of namespace
 
 ```
