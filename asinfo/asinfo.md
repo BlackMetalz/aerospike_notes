@@ -1,3 +1,10 @@
+-- Increase memory-size of namespace
+
+```
+asinfo -v 'set-config:context=namespace;id=<YOUR_NAMESPACE_NAME>;memory-size=G
+```
+after done, change in config file too in case of aerospike restart. Config won't be reverted!
+
 -- Truncate set from namespace
 
 ```
