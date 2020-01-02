@@ -114,3 +114,8 @@ namespace hdd_storage {
         }
 }
 ```
+
+
+-- Eviction :
+Eviction is when records are removed before their expiration time. Only records where TTL is set to a positive integer will be affected by evictions. Eviction starts when a High Water Mark (either disk or memory) is breached. It is particularly important to understand the role of bucket width in eviction as this explain which data will be evicted first.
+
