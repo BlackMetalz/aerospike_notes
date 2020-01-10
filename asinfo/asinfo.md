@@ -8,7 +8,7 @@ asinfo -v 'namespace/your_namespace' -l
 -- Increase memory-size of namespace
 
 ```
-asinfo -v 'set-config:context=namespace;id=<YOUR_NAMESPACE_NAME>;memory-size=G
+asinfo -v 'set-config:context=namespace;id=<YOUR_NAMESPACE_NAME>;memory-size=32G
 ```
 after done, change in config file too in case of aerospike restart. Config won't be reverted!
 
