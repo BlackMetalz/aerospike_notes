@@ -1,16 +1,22 @@
--- Backup command, require astools installed
+
+# Backup
+- Backup command, require astools installed
 
 ```
 asbackup --host localhost --namespace ns_aes_test --directory /data/asbackup/ns_aes_test_today
 ```
 
--- Best practice for backup:
+- Best practice for backup:
 
 ```
 asbackup --node-list 1.2.3.4:3000,5.6.7.8:3000 --namespace test --directory backup_2015_08_24
 ```
+- With gzip
 
--- Restore
+asbackup -l  1.2.3.4:3000,5.6.7.8:3000 -n test -o - | gzip > asbackup/location/test_3000_$(date -I).asb.gz
+
+
+# Restore
 
 ```
 asrestore --host localhost --directory ns_aes_test_today/ -n oldnamespace,newnamespace
