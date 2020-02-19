@@ -18,6 +18,8 @@ service {
   
   # Seem like this location of aerospike server works...
   work-directory /data/softs/aerospike-server/var 
+  
+  log-local-time true # use local time instead of default GMT
 }
 
 logging {
