@@ -32,4 +32,13 @@ Build with -j option
 make -j8 # 8 is number of your core for parallel job
 ```
 
+-- Make a deb file by command
+```
+make deb
+```
+
+.deb file located in aerospike-server/pkg/packages/aerospike-server-community-4.8.0.5.ubuntu18.04.x86_64.deb
+
+then dpkg -i aerospike-server-community-4.8.0.5.ubuntu18.04.x86_64.deb to install aerospike server. Don't forget to add config file if you want start aerospike server
+
 Credit: https://github.com/aerospike/aerospike-server
