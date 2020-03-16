@@ -10,6 +10,9 @@ asinfo -v 'namespace/your_namespace' -l
 ```
 asinfo -h 192.168.1.100 -p 5000 -v 'set-config:context=namespace;id=wtf_ns;memory-size=32G'
 ```
+-- Change batch-max-requests
+asinfo -v "set-config:context=service;batch-max-requests=6000"
+
 
 after done, change in config file too in case of aerospike restart. Config won't be reverted!
 
