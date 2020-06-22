@@ -1,13 +1,46 @@
-namespace ssd_ns {
-  replication-factor 2
-  memory-size 4G
-  default-ttl 30d # 5 days, use 0 to never expire/evict.
+```
+version: '3.3'
 
-  # To use file storage backing, comment out the line above and use the
-  # following lines instead.
-  storage-engine device {
-    file /data/aerospike/port3000.dat
-    filesize 20G
-    data-in-memory false # Store data in memory in addition to file.
-  }
-}
+services:
+    aerospikedb:
+        image: aerospike/aerospike-server:4.4.0.8
+        networks:
+        - aerospikenetwork
+        deploy:
+            mode: global
+        labels:
+            com.aerospike.description: "This label is for all containers for the Aerospike service"
+        command: ["--config-file","/run/secrets/aerospike.conf"]
+        secrets:
+        - source: conffile
+          target: aerospike.conf
+          mode: 0440
+        volumes:
+        - aerospikedata:/opt/aerospike/data
+        - aerospikelog:/var/log/aerospike
+
+networks:
+    aerospikenetwork:
+        external:
+            name: "host"
+
+secrets:
+    conffile:
+        file: ./aerospike.conf
+
+configs:
+    amc_config:
+        file: ./amc.conf
+
+volumes:
+    aerospikedata:
+        driver_opts:
+            type: none
+            device: /data1/aerospike/data
+            o: bind
+    aerospikelog:
+        driver_opts:
+            type: none
+            device: /data1/aerospike/log
+            o: bind
+```
