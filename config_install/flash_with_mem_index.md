@@ -1,3 +1,25 @@
+Aerospike config:
+
+```
+namespace wtf {
+  replication-factor 2
+  memory-size 1G
+  default-ttl 30d # 5 days, use 0 to never expire/evict.
+ 
+  storage-engine device {
+    file /opt/aerospike/data/wtf.dat
+    filesize 5G
+    data-in-memory false # Store data in memory in addition to file.
+    #write-block-size 128K   # adjust block size to make it efficient for SSDs. Only for device /dev/<device>
+
+  }
+}
+
+
+```
+
+Docker config:
+
 ```
 version: '3.3'
 
