@@ -32,4 +32,12 @@ asrestore -h 127.0.0.1 -p 3000 -i backupfile.asb
 ```
 -t <threads> or --threads <threads>     # 20 is the default
 ```
+- Restore single Set
+```
+asrestore -p 3000 -d backup_folder -s yourset
+```
+- Restore set to another set ( same with namespace )
+```
+asrestore -p 3000 -d backup_folder -s oldset,newset
+```
 
