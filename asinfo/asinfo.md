@@ -10,6 +10,11 @@ asinfo -v 'namespace/your_namespace' -l
 ```
 asinfo -h 192.168.1.100 -p 5000 -v 'set-config:context=namespace;id=wtf_ns;memory-size=32G'
 ```
+-- Change high water mark disk pct
+```
+asinfo -p 7000 -h 172.26.49.72 -v "set-config:context=namespace;id=ssd_storage;high-water-disk-pct=60"
+```
+
 -- Change batch-max-requests
 ```
 asinfo -v "set-config:context=service;batch-max-requests=6000"
