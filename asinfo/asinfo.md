@@ -55,4 +55,8 @@ asinfo -v "truncate-namespace:namespace=ns_aes_test"
 ok
 ```
 
+-- Change default ttl
+```
+	asinfo -v "set-config:context=namespace;id=ip2location;default-ttl=0" -h 10.3.51.160 -p 8000
+  ```
 
