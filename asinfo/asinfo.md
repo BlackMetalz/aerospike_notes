@@ -5,6 +5,11 @@
 asinfo -v 'namespace/your_namespace' -l
 ```
 
+-- Get detail for specific set:
+```
+asinfo -p 3000 -h 192.168.1.111 -v 'sets' | grep set_name
+```
+
 -- Increase memory-size of namespace instant
 
 ```
